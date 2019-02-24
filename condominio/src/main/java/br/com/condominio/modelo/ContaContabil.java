@@ -1,3 +1,4 @@
+
 package br.com.condominio.modelo;
 
 import javax.persistence.Column;
@@ -12,18 +13,15 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-import br.com.dyad.businessinfrastructure.entidades.entidade.Entidade;
-import br.com.dyad.businessinfrastructure.entidades.tabela.Tabela;
-import br.com.dyad.infrastructure.annotations.FindExpress;
-import br.com.dyad.infrastructure.annotations.MetaField;
+import br.com.condominio.annotations.*;
 
 @Entity
 @Table(name="TABELA")
 @Inheritance(strategy=InheritanceType.SINGLE_TABLE)
 @DiscriminatorColumn(name="classId", discriminatorType=DiscriminatorType.STRING)
 @DiscriminatorValue(value="-99999899999193")
-@FindExpress(value=" and ( UPPER(codigo) LIKE ('%' || UPPER('@#searchToken#@') || '%') or UPPER(nome) LIKE ('%' || UPPER('@#searchToken#@') || '%'))")
-public class ContaContabil extends Tabela {	
+//@FindExpress(value=" and ( UPPER(codigo) LIKE ('%' || UPPER('@#searchToken#@') || '%') or UPPER(nome) LIKE ('%' || UPPER('@#searchToken#@') || '%'))")
+public class ContaContabil  {	
 
 	@ManyToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name="planoContaId")
@@ -154,3 +152,5 @@ public class ContaContabil extends Tabela {
 		this.entidade = entidade;
 	}
 }
+
+    
